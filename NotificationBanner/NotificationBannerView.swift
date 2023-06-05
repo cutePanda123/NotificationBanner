@@ -108,7 +108,7 @@ open class NotificationBannerView: UIView {
         }
     }
     
-    internal func autoDissmiss() {
+    @objc internal func autoDissmiss() {
         dismisssing = true
         UIView.animate(
             withDuration: Double(0.5), delay: 0, options: [.curveEaseInOut, .allowUserInteraction],
@@ -151,7 +151,7 @@ open class NotificationBannerView: UIView {
         )
     }
     
-    internal func rotate() {
+    @objc internal func rotate() {
         if currentDevice.orientation != orientation {
             if currentLocation == .Top {
                 fixHeight = Int(springHeight)
@@ -173,7 +173,7 @@ open class NotificationBannerView: UIView {
         self.textView.frame = (CGRect(x: 20 + Int(self.currentHeight * 0.5), y: Int(self.currentHeight * 0.33) + setHight + setStatusBarHeight, width: Int(view.bounds.width - self.currentHeight - 30), height: Int(self.currentHeight * 0.35)))
     }
     
-    func click(_ sender: UITapGestureRecognizer) {
+    @objc func click(_ sender: UITapGestureRecognizer) {
         if self.delegate != nil {
             self.delegate.notificationBannerClick(self)
         }
@@ -340,7 +340,7 @@ open class NotificationBannerView: UIView {
         textView.text = textContent
     }
     
-    func cancel(_ sender: UITapGestureRecognizer) {
+    @objc func cancel(_ sender: UITapGestureRecognizer) {
         if !dismisssing {
             dissmiss(completion: { _ in (Bool)()
 
